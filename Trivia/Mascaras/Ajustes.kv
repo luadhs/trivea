@@ -1,0 +1,234 @@
+
+<Ajustes>:
+    canvas.before:
+        Color:
+            rgb: .0, .0, .0  # Negro para el fondo general
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    orientation: 'vertical'
+    padding: 20
+    spacing: 20
+
+    BoxLayout:
+        size_hint_y: 0.05
+        orientation: 'horizontal'
+        canvas.before:
+            Color:
+                rgb: .0, .0, .0  # Negro
+            Rectangle:
+                size: self.size
+                pos: self.pos
+
+        Button:
+            size_hint_x: 0.1
+            on_press: app.root.change_style(1)
+            background_color: 0, 0, 0, 1  # Color negro de fondo
+            text: "<-"
+            font_size: '25sp'
+            color: 21/255., 251/255., 7/255., 1  # Color RGB (21, 251, 7) para el texto
+            markup: True
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 0, 1  # Color negro de fondo
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+        BoxLayout:
+            size_hint_x: 0.9
+
+    BoxLayout:
+        size_hint_y: 0.15       
+        canvas.before:
+            Color:
+                rgb: .0, .0, .0  # Negro
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Label:
+            color: 21/255., 251/255., 7/255., 1 
+            text: 'Ajustes'
+            size_hint_y: None
+            height: self.texture_size[1]
+            valign: 'center'
+            halign: 'center'
+            font_size: '80sp'  # Tamaño de letra más grande
+
+    BoxLayout:
+        size_hint_y: 0.05
+        canvas.before:
+            Color:
+                rgb: .0, .0, .0  # Negro
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Label:
+            color: 21/255., 251/255., 7/255., 1 
+            text: 'Musica'
+            size_hint_x: None
+            width: self.texture_size[0]
+            halign: 'center'
+            valign: 'middle'
+
+    BoxLayout:
+        size_hint_y: 0.1
+        canvas.before:
+            Color:
+                rgb: .0, .0, .0  # Negro
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        spacing: 10
+        orientation: 'horizontal'
+        Button:
+            background_color: 0, 0, 0, 1
+            text: ''
+            canvas.before:
+                Color:
+                    rgba: 21/255., 251/255., 7/255., 1  # Color del borde
+                Line:
+                    width: 2
+                    rectangle: self.x, self.y, self.width, self.height
+
+        Button:
+            background_color: 0, 0, 0, 1
+            text: ''
+            canvas.before:
+                Color:
+                    rgba: 21/255., 251/255., 7/255., 1  # Color del borde
+                Line:
+                    width: 2
+                    rectangle: self.x, self.y, self.width, self.height
+
+        Button:
+            background_color: 0, 0, 0, 1
+            text: ''
+            canvas.before:
+                Color:
+                    rgba: 21/255., 251/255., 7/255., 1  # Color del borde
+                Line:
+                    width: 2
+                    rectangle: self.x, self.y, self.width, self.height
+
+        Button:
+            background_color: 0, 0, 0, 1
+            text: ''
+            canvas.before:
+                Color:
+                    rgba: 21/255., 251/255., 7/255., 1  # Color del borde
+                Line:
+                    width: 2
+                    rectangle: self.x, self.y, self.width, self.height
+
+        Button:
+            background_color: 0, 0, 0, 1
+            text: ''
+            canvas.before:
+                Color:
+                    rgba: 21/255., 251/255., 7/255., 1  # Color del borde
+                Line:
+                    width: 2
+                    rectangle: self.x, self.y, self.width, self.height
+
+    BoxLayout:
+        size_hint_y: 0.05
+        canvas.before:
+            Color:
+                rgb: .0, .0, .0  # Negro
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Label:
+            color: 21/255., 251/255., 7/255., 1 
+            text: 'Efectos'
+            size_hint_x: None
+            width: self.texture_size[0]
+            halign: 'center'
+            valign: 'middle'
+
+    BoxLayout:
+        size_hint_y: 0.1
+        canvas.before:
+            Color:
+                rgb: .0, .0, .0  # Negro
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        spacing: 10
+        orientation: 'horizontal'
+
+        Button:
+            background_color: 0, 0, 0, 1
+            text: ''
+            canvas.before:
+                Color:
+                    rgba: 21/255., 251/255., 7/255., 1  # Color del borde
+                Line:
+                    width: 2
+                    rectangle: self.x, self.y, self.width, self.height
+
+        Button:
+            background_color: 0, 0, 0, 1
+            text: ''
+            canvas.before:
+                Color:
+                    rgba: 21/255., 251/255., 7/255., 1  # Color del borde
+                Line:
+                    width: 2
+                    rectangle: self.x, self.y, self.width, self.height
+
+        Button:
+            background_color: 0, 0, 0, 1
+            text: ''
+            canvas.before:
+                Color:
+                    rgba: 21/255., 251/255., 7/255., 1  # Color del borde
+                Line:
+                    width: 2
+                    rectangle: self.x, self.y, self.width, self.height
+
+        Button:
+            background_color: 0, 0, 0, 1
+            text: ''
+            canvas.before:
+                Color:
+                    rgba: 21/255., 251/255., 7/255., 1  # Color del borde
+                Line:
+                    width: 2
+                    rectangle: self.x, self.y, self.width, self.height
+
+        Button:
+            background_color: 0, 0, 0, 1
+            text: ''
+            canvas.before:
+                Color:
+                    rgba: 21/255., 251/255., 7/255., 1  # Color del borde
+                Line:
+                    width: 2
+                    rectangle: self.x, self.y, self.width, self.height
+
+    BoxLayout:
+        size_hint_y: 0.05
+        canvas.before:
+            Color:
+                rgb: .0, .0, .0  # Negro
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Label:
+            color: 21/255., 251/255., 7/255., 1 
+            text: 'Hola'
+
+    BoxLayout:
+        size_hint_y: 0.4
+        canvas.before:
+            Color:
+                rgb: .0, .0, .0  # Negro
+            Rectangle:
+                size: self.size
+                pos: self.pos
+        Label:
+            color: 21/255., 251/255., 7/255., 1 
+            text: 'Hola :)'

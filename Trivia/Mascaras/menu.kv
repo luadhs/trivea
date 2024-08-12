@@ -1,0 +1,91 @@
+<Menu>:
+    orientation: 'vertical'
+    padding: 20
+    spacing: 20
+
+    BoxLayout:
+        size_hint_y: 0.05
+        canvas.before:
+            Color:
+                rgba: 0, 0, 0, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_y: 0.2
+        canvas.before:
+            Color:
+                rgba: 0, 0, 0, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        Label:
+            text: 'Trivia'
+            color: 21/255., 251/255., 7/255., 1
+            size_hint_y: None
+            height: self.texture_size[1]
+            valign: 'middle'
+            halign: 'center'
+            font_size: '80sp'
+
+    BoxLayout:
+        size_hint_y: 0.05
+        canvas.before:
+            Color:
+                rgba: 0, 0, 0, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+    Button:
+        size_hint_y: 0.1
+        background_color: 0, 0, 0, 1
+        text: 'Solitario'
+        color: 21/255., 251/255., 7/255., 1
+        font_size: '30sp'
+        canvas.before:
+            Color:
+                rgba: 21/255., 251/255., 7/255., 1
+            Line:
+                width: 2
+                rectangle: self.x, self.y, self.width, self.height
+        on_press: app.root.change_style(2)
+
+    Button:
+        size_hint_y: 0.1
+        background_color: 0, 0, 0, 1
+        text: 'Duelo'
+        color: 21/255., 251/255., 7/255., 1
+        font_size: '30sp'
+        canvas.before:
+            Color:
+                rgba: 21/255., 251/255., 7/255., 1
+            Line:
+                width: 2
+                rectangle: self.x, self.y, self.width, self.height
+        on_press: app.root.change_style(30)
+
+    Button:
+        size_hint_y: 0.1
+        background_color: 0, 0, 0, 1
+        text: 'Ajustes'
+        color: 21/255., 251/255., 7/255., 1
+        font_size: '30sp'
+        canvas.before:
+            Color:
+                rgba: 21/255., 251/255., 7/255., 1
+            Line:
+                width: 2
+                rectangle: self.x, self.y, self.width, self.height
+        on_press: app.root.change_style(4)
+
+    BoxLayout:
+        size_hint_y: 0.1
+        canvas.before:
+            Color:
+                rgba: 0, 0, 0, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size

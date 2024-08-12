@@ -1,0 +1,380 @@
+<Solitario>:
+    orientation: 'vertical'
+    pregunta_actual: ''
+    opciones: []
+    respuesta_correcta: ''
+    puntaje: ''  # Añadido para mantener un puntaje inicial
+#puntage 
+    BoxLayout:
+        size_hint_y: 0.1
+        orientation: 'horizontal'
+
+        # Primer parte convertida en botón con texto "<-"
+        Button:
+            size_hint_x: 0.1  # 33.33% del espacio horizontal
+            background_color: 0, 0, 0, 1  # Color negro de fondo
+            text: "<-"
+            font_size: '25sp'
+            color: 21/255., 251/255., 7/255., 1  # Color RGB (21, 251, 7) para el texto
+            markup: True
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 0, 1  # Color negro de fondo
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+        # Segunda parte
+        BoxLayout:
+            size_hint_x: 0.8  # 33.33% del espacio horizontal
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 0, 1  # Color negro de fondo
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+        # Tercer parte
+        BoxLayout:
+            size_hint_x: 0.1  # 33.33% del espacio horizontal
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 0, 1  # Color negro de fondo
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Label:
+                text: " " + str(app.puntaje)  # Mostrar el puntaje actual aquí
+                size_hint: None, None
+                size: self.texture_size[0] + 20, self.texture_size[1] + 20
+                pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+                color: 21/255., 251/255., 7/255., 1  # Color RGB (21, 251, 7) para el texto
+                markup: True
+                font_size: '25sp'
+
+    BoxLayout:
+        size_hint_y: 0.1  # 30% del tamaño vertical total
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgba: 0, 0, 0, 1  # Color negro de fondo
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        BoxLayout:
+            size_hint_y: 0.33  # 1/3 del tamaño vertical total
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 0, 1  # Color negro de fondo
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+#pregunta
+    BoxLayout:
+        size_hint_y: 0.3  # 30% del tamaño vertical total
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgba: 0, 0, 0, 1  # Color negro de fondo
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        BoxLayout:
+            size_hint_y: 0.34  # 1/3 del tamaño vertical total
+            orientation: 'vertical'
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 0, 1  # Color negro de fondo
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Label:
+                text: root.pregunta_actual  # Mostrar la pregunta actual aquí
+                color: 21/255., 251/255., 7/255., 1  # Color RGB (21, 251, 7) para el texto
+                font_size: '25sp'  # Tamaño de fuente en escala de puntos
+                text_size: self.width, None  # Limitar el ancho del área de texto al ancho del Label
+                size_hint_y: None  # Dejar que el alto se ajuste automáticamente
+                height: self.texture_size[1]  # Ajustar la altura del Label al tamaño del texto
+                halign: 'center'  # Centrar el texto horizontalmente
+                valign: 'middle'  # Centrar el texto verticalmente
+                padding: [10, 10]  # Agregar padding alrededor del texto
+
+        BoxLayout:
+            size_hint_y: 0.33  # 1/3 del tamaño vertical total
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 0, 1  # Color negro de fondo
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+    BoxLayout:
+        size_hint_y: 0.1  # 50% del tamaño vertical total
+        orientation: 'vertical'
+        canvas.before:
+            Color:
+                rgba: 0, 0, 0, 1  # Color negro de fondo
+            Rectangle:
+                pos: self.pos
+                size: self.size
+#Botones
+    BoxLayout:
+        size_hint_y: 0.2  # 20% del tamaño vertical total
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_x: 0.5  # 50% del tamaño horizontal de la sección
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 1, 1  # Azul
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Button:
+                text: root.opciones[0] if root.opciones else ''
+                halign: 'center'  # Alineación horizontal centrada
+                valign: 'middle'   # Alineación vertical centrada
+                text_size: self.size  # Tamaño del texto ajustado al tamaño del botón
+                on_release: root.verificar_respuesta(self.text)
+                background_color: 0, 0, 0, 1  # Color negro de fondo
+                color: 21/255., 251/255., 7/255., 1  # Color RGB (21, 251, 7) para el texto
+
+            Button:
+                text: root.opciones[1] if root.opciones else ''
+                halign: 'center'  # Alineación horizontal centrada
+                valign: 'middle'   # Alineación vertical centrada
+                text_size: self.size  # Tamaño del texto ajustado al tamaño del botón
+                on_release: root.verificar_respuesta(self.text)
+                background_color: 0, 0, 0, 1  # Color negro de fondo
+                color: 21/255., 251/255., 7/255., 1  # Color RGB (21, 251, 7) para el texto
+
+    BoxLayout:
+        size_hint_y: 0.2  # 20% del tamaño vertical total
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_x: 0.5  # 50% del tamaño horizontal de la sección
+            canvas.before:
+                Color:
+                    rgba: 0, 1, 0, 1  # Verde
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Button:
+                text: root.opciones[2] if root.opciones else ''
+                halign: 'center'  # Alineación horizontal centrada
+                valign: 'middle'   # Alineación vertical centrada
+                text_size: self.size  # Tamaño del texto ajustado al tamaño del botón
+                on_release: root.verificar_respuesta(self.text)
+                background_color: 0, 0, 0, 1  # Color negro de fondo
+                color: 21/255., 251/255., 7/255., 1  # Color RGB (21, 251, 7) para el texto
+
+            Button:
+                text: root.opciones[3] if root.opciones else ''
+                halign: 'center'  # Alineación horizontal centrada
+                valign: 'middle'   # Alineación vertical centrada
+                text_size: self.size  # Tamaño del texto ajustado al tamaño del botón
+                on_release: root.verificar_respuesta(self.text)
+                background_color: 0, 0, 0, 1  # Color negro de fondo
+                color: 21/255., 251/255., 7/255., 1  # Color RGB (21, 251, 7) para el texto
+
+<Correcto>:
+    orientation: 'vertical'
+
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_y: 0.3  # 30% del tamaño vertical total
+        canvas.before:
+            Color:
+                rgba: 0, 0, 0, 1  # Negro
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: 'Correcto: ' + root.respuesta_correcta  # Mostrar la respuesta correcta
+            font_size: '35sp'
+            size_hint: None, None
+            size: self.texture_size[0] + 20, self.texture_size[1] + 20
+            pos_hint: {'center_x': 0.5, 'center_y': 0.8}
+            color: 0.08, 0.98, 0.03, 1  # RGB (21, 251, 7) para el texto
+            markup: True
+            halign: 'center'  # Centrar el texto horizontalmente
+
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_y: 0.7  # 70% del tamaño vertical total
+
+        # Parte superior del espacio
+        BoxLayout:
+            size_hint_y: 1/3  # 1/3 del tamaño vertical total
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 0, 1  # Negro
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+        # Parte media del espacio con tres divisiones horizontales
+        BoxLayout:
+            size_hint_y: 1/3  # 1/3 del tamaño vertical total
+            orientation: 'horizontal'
+
+            BoxLayout:
+                size_hint_x: 1/3  # 1/3 del tamaño horizontal total
+                canvas.before:
+                    Color:
+                        rgba: 0, 0, 0, 1  # Negro
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+            BoxLayout:
+                size_hint_x: 1/3  # 1/3 del tamaño horizontal total
+                canvas.before:
+                    Color:
+                        rgba: 0, 0, 0, 1  # Negro
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+                Button:
+                    text: 'Siguiente'
+                    size_hint: None, None
+                    size: root.width * 0.3, root.height * 0.1
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}  # Botón centrado en el medio
+                    on_release: app.next_question()
+                    background_color: 0, 0, 0, 1  # Negro
+                    color: 0.08, 0.98, 0.03, 1  # RGB (21, 251, 7) para el texto
+                    font_size: '25sp'
+                    border: [5, 5, 5, 5]  # Borde del botón
+                    canvas.before:
+                        Color:
+                            rgba: 0.08, 0.98, 0.03, 1  # RGB (21, 251, 7) para el borde
+                        Line:
+                            width: 2
+                            rectangle: (self.x, self.y, self.width, self.height)
+                    on_release: app.next_question()
+            BoxLayout:
+                size_hint_x: 1/3  # 1/3 del tamaño horizontal total
+                canvas.before:
+                    Color:
+                        rgba: 0, 0, 0, 1  # Negro
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+        # Parte inferior del espacio
+        BoxLayout:
+            size_hint_y: 1/3  # 1/3 del tamaño vertical total
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 0, 1  # Negro
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+
+<Incorrecto>:
+    orientation: 'vertical'
+    
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_y: 0.3  # 30% del tamaño vertical total
+        canvas.before:
+            Color:
+                rgba: 0, 0, 0, 1  # Negro para el fondo
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+        Label:
+            text: 'Incorrecto: ' + root.respuesta_correcta  # Mostrar la respuesta correcta
+            font_size: '35sp'
+            size_hint: None, None
+            size: self.texture_size[0] + 20, self.texture_size[1] + 20
+            pos_hint: {'center_x': 0.5, 'center_y': 0.8}
+            color: 1, 0, 0, 1  # Rojo para el texto
+            markup: True
+            halign: 'center'  # Centrar el texto horizontalmente
+
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_y: 0.7  # 70% del tamaño vertical total
+
+        # Parte superior del espacio
+        BoxLayout:
+            size_hint_y: 1/3  # 1/3 del tamaño vertical total
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 0, 1  # Negro
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+        # Parte media del espacio con tres divisiones horizontales
+        BoxLayout:
+            size_hint_y: 1/3  # 1/3 del tamaño vertical total
+            orientation: 'horizontal'
+
+            BoxLayout:
+                size_hint_x: 1/3  # 1/3 del tamaño horizontal total
+                canvas.before:
+                    Color:
+                        rgba: 0, 0, 0, 1  # Negro
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+            BoxLayout:
+                size_hint_x: 1/3  # 1/3 del tamaño horizontal total
+                canvas.before:
+                    Color:
+                        rgba: 0, 0, 0, 1  # Negro
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+                Button:
+                    text: 'Siguiente'
+                    size_hint: None, None
+                    size: root.width * 0.3, root.height * 0.1
+                    pos_hint: {'center_x': 0.5, 'center_y': 0.5}  # Botón centrado en el medio
+                    on_release: app.next_question()
+                    background_color: 0, 0, 0, 1  # Fondo negro
+                    color: 1, 0, 0, 1  # Rojo para el texto
+                    font_size: '25sp'
+                    border: [5, 5, 5, 5]  # Borde del botón en color RGB (21, 251, 7)
+                    canvas.before:
+                        Color:
+                            rgba: 1, 0, 0, 1  # Rojo para el borde
+                        Line:
+                            width: 2
+                            rectangle: (self.x, self.y, self.width, self.height)
+                    on_release: app.next_question()
+            BoxLayout:
+                size_hint_x: 1/3  # 1/3 del tamaño horizontal total
+                canvas.before:
+                    Color:
+                        rgba: 0, 0, 0, 1  # Negro
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+        # Parte inferior del espacio
+        BoxLayout:
+            size_hint_y: 1/3  # 1/3 del tamaño vertical total
+            canvas.before:
+                Color:
+                    rgba: 0, 0, 0, 1  # Negro
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+
+<WidStyle2>:

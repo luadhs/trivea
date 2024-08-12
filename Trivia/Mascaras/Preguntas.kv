@@ -1,0 +1,108 @@
+<Preguntas>:
+    canvas.before:
+        Color:
+            rgb: .0,.0,.0
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    orientation: 'vertical'
+    padding: 20
+    spacing: 20
+
+    BoxLayout:
+        size_hint_y: 0.05
+        canvas.before:
+            Color:
+                rgba: 0, 0, 0, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
+
+    Button:
+        size_hint_y: 0.1
+        background_color: 0, 0, 0, 1
+        text: 'General'
+        color: 21/255., 251/255., 7/255., 1
+        font_size: '30sp'
+        canvas.before:
+            Color:
+                rgba: 21/255., 251/255., 7/255., 1
+            Line:
+                width: 2
+                rectangle: self.x, self.y, self.width, self.height
+        on_press: app.root.change_style(5)
+
+    Button:
+        size_hint_y: 0.1
+        background_color: 0, 0, 0, 1
+        text: 'Cultura General'
+        color: 21/255., 251/255., 7/255., 1
+        font_size: '30sp'
+        canvas.before:
+            Color:
+                rgba: 21/255., 251/255., 7/255., 1
+            Line:
+                width: 2
+                rectangle: self.x, self.y, self.width, self.height
+
+    Button:
+        size_hint_y: 0.1
+        background_color: 0, 0, 0, 1
+        text: 'Matematicas'
+        color: 21/255., 251/255., 7/255., 1
+        font_size: '30sp'
+        canvas.before:
+            Color:
+                rgba: 21/255., 251/255., 7/255., 1
+            Line:
+                width: 2
+                rectangle: self.x, self.y, self.width, self.height
+
+    Button:
+        size_hint_y: 0.1
+        background_color: 0, 0, 0, 1
+        text: 'Ciencia'
+        color: 21/255., 251/255., 7/255., 1
+        font_size: '30sp'
+        canvas.before:
+            Color:
+                rgba: 21/255., 251/255., 7/255., 1
+            Line:
+                width: 2
+                rectangle: self.x, self.y, self.width, self.height
+
+    Button:
+        size_hint_y: 0.1
+        background_color: 0, 0, 0, 1
+        text: 'Historia'
+        color: 21/255., 251/255., 7/255., 1
+        font_size: '30sp'
+        canvas.before:
+            Color:
+                rgba: 21/255., 251/255., 7/255., 1
+            Line:
+                width: 2
+                rectangle: self.x, self.y, self.width, self.height
+
+    Button:
+        size_hint_y: 0.1
+        background_color: 0, 0, 0, 1
+        text: 'Comunicacion'
+        color: 21/255., 251/255., 7/255., 1
+        font_size: '30sp'
+        canvas.before:
+            Color:
+                rgba: 21/255., 251/255., 7/255., 1
+            Line:
+                width: 2
+                rectangle: self.x, self.y, self.width, self.height
+
+    BoxLayout:
+        size_hint_y: 0.1
+        canvas.before:
+            Color:
+                rgba: 0, 0, 0, 1
+            Rectangle:
+                pos: self.pos
+                size: self.size
